@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vietnamese Traditional Pottery - Interactive Presentation</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Background Particle Canvas -->
+    <canvas id="emberCanvas"></canvas>
+
+    <div class="presentation-wrapper">
+      <!-- Top Progress Bar -->
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <!-- Header Navigation -->
+      <header class="top-nav">
+        <div class="brand">
+          <i class="fa-solid fa-fire-burner brand-icon"></i>
+          <span>Vietnamese Ceramic Arts</span>
+        </div>
+        <div class="nav-controls">
+          <button id="gridBtn" class="icon-btn" title="Slide Grid (G)">
+            <i class="fa-solid fa-border-all"></i>
+          </button>
+          <button id="autoPlayBtn" class="icon-btn" title="Autoplay">
+            <i class="fa-solid fa-play" id="playIcon"></i>
+          </button>
+          <div class="slide-counter">
+            <span id="currentSlideNum">01</span> /
+            <span id="totalSlideNum">09</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Slides Stage -->
+      <main class="slides-container" id="slidesContainer">
+        <!-- SLIDE 1: Cover -->
+        <section class="slide active" data-slide="1">
+          <div class="slide-glass-card hero-card">
+            <span class="badge"
+              ><i class="fa-solid fa-gem"></i> National Cultural Heritage</span
+            >
+            <h1 class="hero-title">Vietnamese Traditional Pottery</h1>
+            <p class="hero-subtitle">The Timeless Art of Earth, Water & Fire</p>
+            <div class="hero-divider"></div>
+            <p class="hero-desc">
+              Explore the authentic craftsmanship, rich history, and exquisite
+              artistry of traditional Vietnamese ceramic making.
+            </p>
+            <button class="cta-btn" onclick="nextSlide()">
+              <span>Start Exploring</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </section>
+
+        <!-- SLIDE 2: Heritage & Rustic Products (img3.jpeg) -->
+        <section class="slide" data-slide="2">
+          <div class="slide-glass-card">
+            <div class="slide-header">
+              <span class="slide-step">Heritage</span>
+              <h2>Traditional Clay Culture</h2>
+            </div>
+            <div class="content-grid two-col">
+              <div class="text-block">
+                <p class="lead-text">
+                  Vietnamese pottery reflects centuries of village life,
+                  functional necessity, and artistic soul.
+                </p>
+                <ul class="feature-list">
+                  <li>
+                    <i class="fa-solid fa-check"></i>
+                    <strong>Folk Artistry:</strong> Simple clay pots, statues,
+                    and jars used in everyday household life.
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-check"></i>
+                    <strong>Natural Terracotta:</strong> Fired without glaze to
+                    preserve the warm, earthy tone of raw clay.
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-check"></i>
+                    <strong>Cultural Symbolism:</strong> Represents warmth,
+                    simplicity, and rural Vietnamese spirit.
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="image-box zoomable"
+                onclick="
+                  openLightbox(
+                    'images/img3.jpeg',
+                    'Traditional Rustic Clay Products',
+                  )
+                "
+              >
+                <img src="images/img3.jpeg" alt="Rustic Clay Collection" />
+                <div class="img-overlay">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i> Click to
+                  Enlarge
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 3: Shaping & Drying Clay (img2.jpeg) -->
+        <section class="slide" data-slide="3">
+          <div class="slide-glass-card">
+            <div class="slide-header">
+              <span class="slide-step">Process • Step 01</span>
+              <h2>Hand Shaping & Sun Drying</h2>
+            </div>
+            <div class="content-grid two-col">
+              <div
+                class="image-box zoomable"
+                onclick="
+                  openLightbox(
+                    'images/img2.jpeg',
+                    'Cham Artisan Shaping Clay Vessels',
+                  )
+                "
+              >
+                <img src="images/img2.jpeg" alt="Cham Clay Artisan" />
+                <div class="img-overlay">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i> Click to
+                  Enlarge
+                </div>
+              </div>
+              <div class="text-block">
+                <h3 class="step-title">
+                  <i class="fa-solid fa-hands-holding"></i> Master Craftsmanship
+                </h3>
+                <p>
+                  Before firing, raw clay is meticulously shaped by hand or on
+                  traditional turntables, then arranged for air drying.
+                </p>
+                <div class="process-box">
+                  <div class="process-item">
+                    <span class="num">1</span>
+                    <div>
+                      <h4>Manual Molding</h4>
+                      <p>
+                        Artisans walk backwards around stationary clay pedestals
+                        to shape large vessels seamlessly.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="process-item">
+                    <span class="num">2</span>
+                    <div>
+                      <h4>Shade Drying</h4>
+                      <p>
+                        Vessels dry naturally in open air to remove moisture
+                        before entering the kiln.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 4: Terracotta Painting & Detailing (img1.jpeg) -->
+        <section class="slide" data-slide="4">
+          <div class="slide-glass-card">
+            <div class="slide-header">
+              <span class="slide-step">Process • Step 02</span>
+              <h2>Terracotta Painting & Etching</h2>
+            </div>
+            <div class="content-grid two-col">
+              <div class="text-block">
+                <h3 class="step-title">
+                  <i class="fa-solid fa-paint-brush"></i> Folk Motifs &
+                  Engraving
+                </h3>
+                <p>
+                  On semi-dry terracotta bodies, artisans paint or carve
+                  traditional symbols directly onto the earthenware surface.
+                </p>
+                <div class="highlight-card">
+                  <i class="fa-solid fa-quote-left"></i>
+                  <p>
+                    "Every brush stroke on unbaked clay requires steady hands
+                    and deep focus."
+                  </p>
+                </div>
+                <p>
+                  Common themes include coconut trees, lotus flowers, rural
+                  landscapes, and mythical creatures.
+                </p>
+              </div>
+              <div
+                class="image-box zoomable"
+                onclick="
+                  openLightbox(
+                    'images/img1.jpeg',
+                    'Artisan Painting Terracotta Vessels',
+                  )
+                "
+              >
+                <img src="images/img1.jpeg" alt="Painting Terracotta Vessel" />
+                <div class="img-overlay">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i> Click to
+                  Enlarge
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 5: Underglaze Blue & White Painting (img4.jpeg) -->
+        <section class="slide" data-slide="5">
+          <div class="slide-glass-card">
+            <div class="slide-header">
+              <span class="slide-step">Process • Step 03</span>
+              <h2>Fine Porcelain Underglaze Art</h2>
+            </div>
+            <div class="content-grid two-col">
+              <div
+                class="image-box zoomable"
+                onclick="
+                  openLightbox(
+                    'images/img4.jpeg',
+                    'Master Painting Men Lam Blue & White Glaze',
+                  )
+                "
+              >
+                <img src="images/img4.jpeg" alt="Blue and White Painting" />
+                <div class="img-overlay">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i> Click to
+                  Enlarge
+                </div>
+              </div>
+              <div class="text-block">
+                <h3 class="step-title">
+                  <i class="fa-solid fa-palette"></i> The Legacy of "Men Lam"
+                </h3>
+                <p>
+                  Famous in historic ceramic villages like Bát Tràng and Chu
+                  Đậu, underglaze cobalt painting demands extreme precision.
+                </p>
+                <ul class="feature-list">
+                  <li>
+                    <i class="fa-solid fa-feather"></i>
+                    <strong>Fine Brushes:</strong> Soft bamboo brushes apply
+                    cobalt oxide pigment onto raw ceramic surfaces.
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-fire-flame-curved"></i>
+                    <strong>Chemical Transformation:</strong> Dark grey paint
+                    turns into brilliant sapphire blue upon high kiln firing.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 6: Color Glazing & Firing (img5.jpeg) -->
+        <section class="slide" data-slide="6">
+          <div class="slide-glass-card">
+            <div class="slide-header">
+              <span class="slide-step">Process • Step 04</span>
+              <h2>Vibrant Glaze Formulations</h2>
+            </div>
+            <div class="content-grid two-col">
+              <div class="text-block">
+                <h3 class="step-title">
+                  <i class="fa-solid fa-flask-vial"></i> Natural Mineral Glazes
+                </h3>
+                <p>
+                  Traditional Vietnamese glazes incorporate wood ash, river
+                  sand, crushed stone, and natural mineral pigments.
+                </p>
+                <div class="glaze-tags">
+                  <span class="tag"
+                    ><i class="fa-solid fa-droplet"></i> Floral Embossing</span
+                  >
+                  <span class="tag"
+                    ><i class="fa-solid fa-droplet"></i> Multi-color
+                    Glazes</span
+                  >
+                  <span class="tag"
+                    ><i class="fa-solid fa-droplet"></i> High-Gloss Polish</span
+                  >
+                </div>
+                <p>
+                  Glazed pieces are fired between 1,200°C and 1,300°C to achieve
+                  durable, glassy protective surfaces.
+                </p>
+              </div>
+              <div
+                class="image-box zoomable"
+                onclick="
+                  openLightbox(
+                    'images/img5.jpeg',
+                    'Vibrant Floral Glazed Ceramic Jars',
+                  )
+                "
+              >
+                <img src="images/img5.jpeg" alt="Vibrant Glazed Ceramic Jars" />
+                <div class="img-overlay">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i> Click to
+                  Enlarge
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 7: Modern Innovations & Mosaic Finishes (img6.jpeg) -->
+        <section class="slide" data-slide="7">
+          <div class="slide-glass-card">
+            <div class="slide-header">
+              <span class="slide-step">Process • Step 05</span>
+              <h2>Eggshell & Lacquer Mosaics</h2>
+            </div>
+            <div class="content-grid two-col">
+              <div
+                class="image-box zoomable"
+                onclick="
+                  openLightbox(
+                    'images/img6.jpeg',
+                    'Colorful Eggshell & Lacquer Ceramic Bowls',
+                  )
+                "
+              >
+                <img src="images/img6.jpeg" alt="Eggshell Mosaic Bowls" />
+                <div class="img-overlay">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i> Click to
+                  Enlarge
+                </div>
+              </div>
+              <div class="text-block">
+                <h3 class="step-title">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i> Contemporary
+                  Crafts
+                </h3>
+                <p>
+                  Combining ancient pottery foundations with traditional
+                  lacquerware and eggshell inlay techniques.
+                </p>
+                <div class="process-box">
+                  <div class="process-item">
+                    <span class="num">A</span>
+                    <div>
+                      <h4>Eggshell Inlay</h4>
+                      <p>
+                        Tiny duck eggshell fragments are carefully glued onto
+                        fired ceramics creating crackle patterns.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="process-item">
+                    <span class="num">B</span>
+                    <div>
+                      <h4>Lacquer Coating</h4>
+                      <p>
+                        Multiple coats of natural tree resin produce rich,
+                        glossy color depth and waterproof protection.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 8: Complete Photo Gallery -->
+        <section class="slide" data-slide="8">
+          <div class="slide-glass-card">
+            <div class="slide-header text-center">
+              <span class="slide-step">Showcase</span>
+              <h2>Complete Visual Exhibition</h2>
+            </div>
+            <div class="gallery-grid">
+              <div
+                class="gallery-card"
+                onclick="
+                  openLightbox(
+                    'images/img1.jpeg',
+                    'Artisan Painting Terracotta Vessels',
+                  )
+                "
+              >
+                <img src="images/img1.jpeg" alt="Gallery Image 1" />
+                <span>Terracotta Painting</span>
+              </div>
+              <div
+                class="gallery-card"
+                onclick="
+                  openLightbox('images/img2.jpeg', 'Cham Artisan Shaping Clay')
+                "
+              >
+                <img src="images/img2.jpeg" alt="Gallery Image 2" />
+                <span>Clay Shaping</span>
+              </div>
+              <div
+                class="gallery-card"
+                onclick="
+                  openLightbox('images/img3.jpeg', 'Rustic Clay Products')
+                "
+              >
+                <img src="images/img3.jpeg" alt="Gallery Image 3" />
+                <span>Rustic Terracotta</span>
+              </div>
+              <div
+                class="gallery-card"
+                onclick="
+                  openLightbox(
+                    'images/img4.jpeg',
+                    'Underglaze Blue & White Painting',
+                  )
+                "
+              >
+                <img src="images/img4.jpeg" alt="Gallery Image 4" />
+                <span>Cobalt Painting</span>
+              </div>
+              <div
+                class="gallery-card"
+                onclick="openLightbox('images/img5.jpeg', 'Floral Glazed Jars')"
+              >
+                <img src="images/img5.jpeg" alt="Gallery Image 5" />
+                <span>Color Glazes</span>
+              </div>
+              <div
+                class="gallery-card"
+                onclick="
+                  openLightbox('images/img6.jpeg', 'Eggshell Mosaic Bowls')
+                "
+              >
+                <img src="images/img6.jpeg" alt="Gallery Image 6" />
+                <span>Eggshell Mosaic</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 9: Conclusion -->
+        <section class="slide" data-slide="9">
+          <div class="slide-glass-card end-card">
+            <div class="end-icon">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <h2 class="end-title">Thank You Very Much!</h2>
+            <p class="end-subtitle">For your attention and support</p>
+            <div class="hero-divider"></div>
+            <p class="end-message">
+              Sincere thanks to our Teacher and Classmates for listening to our
+              presentation on Vietnamese Ceramic Heritage.
+            </p>
+            <button class="cta-btn secondary" onclick="goToSlide(1)">
+              <i class="fa-solid fa-rotate-right"></i>
+              <span>Replay Presentation</span>
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <!-- Bottom Controls -->
+      <footer class="bottom-nav">
+        <button class="nav-btn" id="prevBtn" onclick="prevSlide()">
+          <i class="fa-solid fa-chevron-left"></i>
+          <span>Prev</span>
+        </button>
+        <div class="dots-container" id="dotsContainer"></div>
+        <button class="nav-btn" id="nextBtn" onclick="nextSlide()">
+          <span>Next</span>
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </footer>
+    </div>
+
+    <!-- Grid Modal -->
+    <div class="modal" id="gridModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Slide Navigation Overview</h3>
+          <button class="close-btn" id="closeGridBtn">&times;</button>
+        </div>
+        <div class="grid-thumbs" id="gridThumbs"></div>
+      </div>
+    </div>
+
+    <!-- Image Lightbox Modal -->
+    <div class="modal" id="lightboxModal">
+      <div class="lightbox-content">
+        <button class="close-btn lightbox-close" onclick="closeLightbox()">
+          &times;
+        </button>
+        <img id="lightboxImg" src="" alt="Zoomed Photo" />
+        <p id="lightboxCaption"></p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
